@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 
 var app = express();
 var port = process.env.PORT|| 3000;
-app.use(express.static(__dirname + '/../react-client/dist'));
+// app.use(express.static(__dirname + '/../react-client/dist'));
 app.use(cors());
 // app.use(bodyParser.json());
 app.use(express.json());
@@ -21,6 +21,9 @@ connection.once('open', function() {
 
 const addItemsRouter = require('./routes/addItems.js');
 app.use('/addItems', addItemsRouter);
+const addUserRouter = require('./routes/addUser.js');
+app.use('/addUser', addUserRouter);
+
 
 app.listen(port, function() {
   console.log('listening on port 3000!');
